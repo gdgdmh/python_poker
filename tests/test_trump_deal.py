@@ -6,7 +6,7 @@ from poker import trump_hand
 
 
 def test_deal_001():
-    """デッキからカードを配る."""
+    """デッキからカードを配る(joker1 player1)."""
     deal = trump_deal.TrumpDeal()
     deck = trump_deck.TrumpDeck()
     hand = []
@@ -18,34 +18,168 @@ def test_deal_001():
 
 
 def test_deal_002():
-    """デッキからカードを配る."""
-    # deal = trump_deal.TrumpDeal()
-    # deck = trump_deck.TrumpDeck()
-    # old_maid_players = []
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # deck.set_one_joker_deck()
-    # deal.deal(deck, old_maid_players)
-    # assert old_maid_players[0].get_hand_size() == 18
-    # assert old_maid_players[1].get_hand_size() == 18
-    # assert old_maid_players[2].get_hand_size() == 17
-    # assert deck.size() == 0
+    """デッキからカードを配る(joker1 player2)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_one_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 27
+    assert hand[1].size() == 26
+    assert deck.size() == 0
 
 
 def test_deal_003():
-    """デッキからカードを配る."""
-    # deal = trump_deal.TrumpDeal()
-    # deck = trump_deck.TrumpDeck()
-    # old_maid_players = []
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # old_maid_players.append(old_maid_player.OldMaidPlayer())
-    # deck.set_one_joker_deck()
-    # deal.deal(deck, old_maid_players)
-    # assert old_maid_players[0].get_hand_size() == 14
-    # assert old_maid_players[1].get_hand_size() == 13
-    # assert old_maid_players[2].get_hand_size() == 13
-    # assert old_maid_players[3].get_hand_size() == 13
-    # assert deck.size() == 0
+    """デッキからカードを配る(joker1 player3)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_one_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 18
+    assert hand[1].size() == 18
+    assert hand[2].size() == 17
+    assert deck.size() == 0
+
+
+def test_deal_004():
+    """デッキからカードを配る(joker1 player4)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_one_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 14
+    assert hand[1].size() == 13
+    assert hand[2].size() == 13
+    assert hand[3].size() == 13
+    assert deck.size() == 0
+
+
+def test_deal_005():
+    """デッキからカードを配る(joker2 player1)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    deck.set_full_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 54
+    assert deck.size() == 0
+
+
+def test_deal_006():
+    """デッキからカードを配る(joker2 player2)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_full_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 27
+    assert hand[1].size() == 27
+    assert deck.size() == 0
+
+
+def test_deal_007():
+    """デッキからカードを配る(joker2 player3)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_full_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 18
+    assert hand[1].size() == 18
+    assert hand[2].size() == 18
+    assert deck.size() == 0
+
+
+def test_deal_008():
+    """デッキからカードを配る(joker2 player4)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_full_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 14
+    assert hand[1].size() == 14
+    assert hand[2].size() == 13
+    assert hand[3].size() == 13
+    assert deck.size() == 0
+
+
+def test_deal_009():
+    """デッキからカードを配る(joker0 player1)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 52
+    assert deck.size() == 0
+
+
+def test_deal_010():
+    """デッキからカードを配る(joker0 player2)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 26
+    assert hand[1].size() == 26
+    assert deck.size() == 0
+
+
+def test_deal_011():
+    """デッキからカードを配る(joker0 player3)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 18
+    assert hand[1].size() == 17
+    assert hand[2].size() == 17
+    assert deck.size() == 0
+
+
+def test_deal_012():
+    """デッキからカードを配る(joker0 player4)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    assert hand[0].size() == 13
+    assert hand[1].size() == 13
+    assert hand[2].size() == 13
+    assert hand[3].size() == 13
+    assert deck.size() == 0
