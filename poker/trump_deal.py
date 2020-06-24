@@ -13,7 +13,7 @@ class TrumpDeal:
     def deal(self, deck, hands):
         """手札にトランプを配布する."""
         if deck.size() <= 0:
-            return
+            raise ValueError("deck empty")
         if len(hands) == 0:
             raise ValueError("hands invalid")
         player_index = 0

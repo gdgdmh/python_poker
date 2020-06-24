@@ -183,3 +183,62 @@ def test_deal_012():
     assert hand[2].size() == 13
     assert hand[3].size() == 13
     assert deck.size() == 0
+
+
+def test_deal_013():
+    """デッキからカードを配る(joker0 player52)."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    size = 52
+    for _ in range(size):
+        hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    for i in range(size):
+        assert hand[i].size() == 1
+    assert deck.size() == 0
+
+
+def test_deal_014():
+    """デッキからカードを配る(joker0 player53) カード以上に人数がいるパターン."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    size = 53
+    for _ in range(size):
+        hand.append(trump_hand.TrumpHand())
+    deck.set_no_joker_deck()
+    deal.deal(deck, hand)
+    for i in range(size - 1):
+        assert hand[i].size() == 1
+    assert hand[52].size() == 0
+    assert deck.size() == 0
+
+
+def test_deal_015():
+    """デッキからカードを配る(deck0) ValueErrorが発生."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    hand.append(trump_hand.TrumpHand())
+    try:
+        deal.deal(deck, hand)
+    except ValueError:
+        pass
+    else:
+        assert False
+
+
+def test_deal_016():
+    """デッキからカードを配る(hand0) ValueErrorが発生."""
+    deal = trump_deal.TrumpDeal()
+    deck = trump_deck.TrumpDeck()
+    hand = []
+    deck.set_no_joker_deck()
+    try:
+        deal.deal(deck, hand)
+    except ValueError:
+        pass
+    else:
+        assert False
